@@ -38,9 +38,9 @@ cross_toolchain () {
   
   # === PKGs Definition === #
   gnu_pkgs=("binutils/binutils-2.39.tar.gz
-         gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
-         glibc/glibc-2.36.tar.gz")
-  linux_pkgs="v6.x/linux-6.0.tar.gz"
+             gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
+             glibc/glibc-2.36.tar.gz")
+  linux_pkg="v6.x/linux-6.0.tar.gz"
   
   # === PKGs Download === #
   banner "PKGs Download"; separator
@@ -48,7 +48,7 @@ cross_toolchain () {
     wget "${GNU_URL}${pkg}"
     separator
   done
-  wget "${LINUX_URL}v6.x/linux-6.0.tar.gz"
+  wget "${LINUX_URL}${linux_pkg}"
   clear
 
   # === PKGs Decompression & Extraction === #
@@ -63,8 +63,49 @@ cross_toolchain () {
 
 
 temporary_tools () {
-  echo "Not implemented yet!"
-  tput cnorm; exit 1
+  pushd Temporary-Tools/src &>/dev/null
+  rm -r *
+
+  # === PKGs Definition === #
+  gnu_pkgs=("m4/m4-1.4.19.tar.gz
+             ncurses/ncurses-6.3.tar.gz
+             bash/bash-5.1.16.tar.gz
+             coreutils/coreutils-9.1.tar.gz
+             diffutils/diffutils-3.8.tar.xz
+             findutils/findutils-4.9.0.tar.xz
+             gawk/gawk-5.1.1.tar.gz
+             grep/grep-3.7.tar.gz
+             gzip/gzip-1.12.tar.gz
+             make/make-4.3.tar.gz
+             patch/patch-2.7.6.tar.gz
+             sed/sed-4.8.tar.gz
+             tar/tar-1.34.tar.gz
+             binutils/binutils-2.39.tar.gz
+             gcc/gcc-12.2.0/gcc-12.2.0.tar.gz")
+  other_pkgs="file xz"
+
+  # === PKGs Download === #
+  banner "PKGs Download"; separator
+  for pkg in $gnu_pkgs; do
+    wget "${GNU_URL}${pkg}"
+    separator
+  done
+  for pkg in $other_pkgs; do
+  done
+  clear
+
+  # === PKGs Decompression & Extraction === #
+  for pkg in $(ls | grep ".gz"); do
+    tar -zxvf $pkg && rm $_
+    clear
+  done
+  for pkg in $(ls | grep ".xz"); do
+    tar -Jxvf $pkg && rm $_
+    clear
+  done
+
+  popd &>/dev/null
+  tput cnorm; exit 0
 }
 
 
