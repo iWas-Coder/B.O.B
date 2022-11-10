@@ -8,6 +8,9 @@ C_RED='\033[1;31m'
 
 GNU_URL="https://ftpmirror.gnu.org/"
 LINUX_URL="https://cdn.kernel.org/pub/linux/kernel/"
+FILE_URL="https://astron.com/pub/"
+XZ_URL="https://tukaani.org/"
+
 MODE=$1
 
 
@@ -50,13 +53,13 @@ cross_toolchain () {
   done
   wget "${LINUX_URL}${linux_pkg}"
   clear
-
+  
   # === PKGs Decompression & Extraction === #
   for pkg in $(ls); do
     tar -zxvf $pkg && rm $_
     clear
   done
-
+  
   popd &>/dev/null
   tput cnorm; exit 0
 }
@@ -65,7 +68,7 @@ cross_toolchain () {
 temporary_tools () {
   pushd Temporary-Tools/src &>/dev/null
   rm -r *
-
+  
   # === PKGs Definition === #
   gnu_pkgs=("m4/m4-1.4.19.tar.gz
              ncurses/ncurses-6.3.tar.gz
@@ -82,18 +85,20 @@ temporary_tools () {
              tar/tar-1.34.tar.gz
              binutils/binutils-2.39.tar.gz
              gcc/gcc-12.2.0/gcc-12.2.0.tar.gz")
-  other_pkgs="file xz"
-
+  file_pkg="file/file-5.42.tar.gz"
+  xz_pkg="xz/xz-5.2.6.tar.gz"
+  
   # === PKGs Download === #
   banner "PKGs Download"; separator
   for pkg in $gnu_pkgs; do
     wget "${GNU_URL}${pkg}"
     separator
   done
-  for pkg in $other_pkgs; do
-  done
+  wget "${FILE_URL}${file_pkg}"
+  separator
+  wget "${XZ_URL}${xz_pkg}"
   clear
-
+  
   # === PKGs Decompression & Extraction === #
   for pkg in $(ls | grep ".gz"); do
     tar -zxvf $pkg && rm $_
@@ -103,7 +108,7 @@ temporary_tools () {
     tar -Jxvf $pkg && rm $_
     clear
   done
-
+  
   popd &>/dev/null
   tput cnorm; exit 0
 }
@@ -121,4 +126,3 @@ esac
 
 echo -e "${C_RED}[-] ERROR: Bad arguments! -h/--help to see usage${C_RESET}"
 tput cnorm; exit 1
-
