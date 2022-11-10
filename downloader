@@ -37,7 +37,7 @@ help_text () {
 
 cross_toolchain () {
   pushd Cross-Toolchain/src &>/dev/null
-  rm -r *
+  rm -rf *
   
   # === PKGs Definition === #
   gnu_pkgs=("binutils/binutils-2.39.tar.gz
@@ -67,7 +67,7 @@ cross_toolchain () {
 
 temporary_tools () {
   pushd Temporary-Tools/src &>/dev/null
-  rm -r *
+  rm -rf *
   
   # === PKGs Definition === #
   gnu_pkgs=("m4/m4-1.4.19.tar.gz
