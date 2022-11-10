@@ -27,10 +27,17 @@ banner () {
 
 
 help_text () {
-  echo "usage: ./downloader [-h / --help] <SECTION>"
+  echo "usage: ./downloader [-h / --help] [--clean-sources] <SECTION>"
   echo -e "\tsections:"
   echo -e "\t0 -> Cross-Toolchain"
   echo -e "\t1 -> Temporary-Tools"
+  tput cnorm; exit 0
+}
+
+
+clean_sources () {
+  rm -rf Cross-Toolchain/src/*
+  rm -rf Temporary-Tools/src/*
   tput cnorm; exit 0
 }
 
@@ -118,6 +125,8 @@ case $MODE in
   # === Help === #
   "-h" ) help_text;;
   "--help" ) help_text;;
+  
+  "--clean-sources" ) clean_sources;;
   
   # === Sections === #
   "0" ) cross_toolchain;;
