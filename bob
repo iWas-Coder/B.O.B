@@ -1,1 +1,18 @@
 #!/bin/bash
+
+# Source: https://www.linuxfromscratch.org/lfs/view/stable-systemd
+# Author: Wasym Atieh Alonso
+
+############################
+# Script Environment Setup #
+############################
+source chapters/envsetup.sh
+
+####################################
+# CHAPTER 03: Packages and Patches #
+####################################
+confirm
+source chapters/chapter03.sh
+
+# Recover cursor
+tput cnorm; exit 0
