@@ -99,7 +99,7 @@ gcc_preparation () {
 
 cross_toolchain () {
   # ENV Variables
-  SYSROOT="$(pwd)/ROOT"
+  SYSROOT="$(pwd)/root"
   PREFIX="$(pwd)/Cross-Toolchain/bin"
   TARGET="$(uname -m)-bob-linux-gnu"
 
