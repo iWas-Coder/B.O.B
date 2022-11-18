@@ -35,6 +35,17 @@ help_text () {
 }
 
 
+confirm () {
+  echo -e "${C_YELLOW}Still alive? Continue? (y/n) ${C_RESET}"
+  read -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    tput cnorm; exit 1
+  fi
+  separator
+}
+
+
 binutils_preparation () {
   banner "Binutils Preparation"; separator
   pushd binutils* &>/dev/null
@@ -99,37 +110,46 @@ gcc_preparation () {
 
 cross_toolchain () {
   # ENV Variables
+  banner "GCC Preparation"; separator
   SYSROOT="$(pwd)/root"
-  PREFIX="$(pwd)/Cross-Toolchain/bin"
-  TARGET="$(uname -m)-bob-linux-gnu"
-
   echo "SYSROOT: $SYSROOT"
+  PREFIX="$(pwd)/Cross-Toolchain/bin"
   echo "PREFIX: $PREFIX"
+  TARGET="$(uname -m)-bob-linux-gnu"
   echo "TARGET: $TARGET"
+  separator
 
   pushd Cross-Toolchain/src &>/dev/null
   
   # === Binutils === #
+  confirm
   binutils_preparation
   separator
+  confirm
   binutils_compilation
   clear
 
   # === GCC === #
+  confirm
   gcc_preparation
   separator
+  confirm
   gcc_compilation
   clear
 
   # === Linux Headers === #
+  confirm
   linux_headers_preparation
   separator
+  confirm
   linux_headers_compilation
   clear
 
   # === Glibc === #
+  confirm
   glibc_preparation
   separator
+  confirm
   glibc_compilation
   clear
 
