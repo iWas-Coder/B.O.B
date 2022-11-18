@@ -39,6 +39,6 @@ banner "Checking SHA384 of downloaded sources"; separator
 sha384sum -c "$BOB"/sources/sources.sha384
 separator
 banner "Checking SHA512 of downloaded sources"; separator
-sha512sum -c "$BOB"/sources/sha512
+sha512sum -c "$BOB"/sources/sources.sha512
 separator
 popd &>/dev/null
