@@ -110,7 +110,7 @@ gcc_preparation () {
 
 cross_toolchain () {
   # ENV Variables
-  banner "GCC Preparation"; separator
+  banner "ENV Variables"; separator
   SYSROOT="$(pwd)/root"
   echo "SYSROOT: $SYSROOT"
   PREFIX="$(pwd)/Cross-Toolchain/bin"
