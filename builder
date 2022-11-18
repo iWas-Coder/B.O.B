@@ -106,7 +106,6 @@ cross_toolchain () {
   echo "SYSROOT: $SYSROOT"
   echo "PREFIX: $PREFIX"
   echo "TARGET: $TARGET"
-  exit 101
 
   pushd Cross-Toolchain/src &>/dev/null
   
