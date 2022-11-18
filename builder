@@ -130,28 +130,28 @@ cross_toolchain () {
   clear
 
   # === GCC === #
-  confirm
-  gcc_preparation
-  separator
-  confirm
-  gcc_compilation
-  clear
+  # confirm
+  # gcc_preparation
+  # separator
+  # confirm
+  # gcc_compilation
+  # clear
 
   # === Linux Headers === #
-  confirm
-  linux_headers_preparation
-  separator
-  confirm
-  linux_headers_compilation
-  clear
+  # confirm
+  # linux_headers_preparation
+  # separator
+  # confirm
+  # linux_headers_compilation
+  # clear
 
   # === Glibc === #
-  confirm
-  glibc_preparation
-  separator
-  confirm
-  glibc_compilation
-  clear
+  # confirm
+  # glibc_preparation
+  # separator
+  # confirm
+  # glibc_compilation
+  # clear
 
   popd &>/dev/null
   tput cnorm; exit 0
