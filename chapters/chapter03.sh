@@ -10,7 +10,7 @@ banner "CHAPTER 03: Packages and Patches"; separator
 
 # $LFS/sources can be used both as the place to store the tarballs and patches and as a working directory.
 # To create this directory, execute the following command, as user root, before starting the download session:
-if [ ! -d "$LFS"/sources ]; then sudo mkdir "$LFS"/sources; fi
+sudo mkdir -p "$LFS"/sources
 
 # Make this directory writable and sticky.
 # “Sticky” means that even if multiple users have write permission on a directory, only the owner of a file can delete the file within a sticky directory.
@@ -18,7 +18,6 @@ if [ ! -d "$LFS"/sources ]; then sudo mkdir "$LFS"/sources; fi
 sudo chmod a+wt "$LFS"/sources
 
 # To download all of the packages and patches use:
-banner "Downloading sources in $LFS/sources"; separator
 for pkg in $(cat "$BOB"/sources/sources.list); do
     wget -nc "$pkg" -P "$LFS"/sources
 done

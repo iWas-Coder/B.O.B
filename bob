@@ -14,5 +14,17 @@ source chapters/envsetup.sh
 confirm
 source chapters/chapter03.sh
 
+##################################
+# CHAPTER 04: Final Preparations #
+##################################
+confirm
+source chapters/chapter04.sh
+
+###########################################
+# CHAPTER 05: Compiling a Cross-Toolchain #
+###########################################
+confirm
+source chapters/chapter05.sh
+
 # Recover cursor
 tput cnorm; exit 0

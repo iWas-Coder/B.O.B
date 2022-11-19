@@ -39,7 +39,7 @@ sudo whoami &>/dev/null
 # Base directories
 BOB=$(pwd)
 LFS="/mnt/lfs"
-if [ ! -d "$LFS" ]; then sudo mkdir "$LFS"; fi
+sudo mkdir -p "$LFS"
 banner "Script Environment Setup"; separator
 echo "BOB: $BOB"
 echo "LFS: $LFS"
