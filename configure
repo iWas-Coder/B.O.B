@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Source: https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter02/hostreqs.html
+# Author: Wasym Atieh Alonso
+
+export LC_ALL=C
+
+# Bash (>=3.2)
+echo -n "bash: "; bash --version | head -n1 | awk '{print $4}' | cut -d '(' -f 1
+echo -n "sh -> "; readlink -f /bin/sh
+# Binutils (>=2.13.1)
+echo -n "binutils: "; ld --version | head -n1 | awk '{print $7}'
+# Bison (>=2.7)
+echo -n "bison: "; bison --version | head -n1 | awk '{print $4}'
+echo -n "yacc: "; yacc --version | head -n1 | awk '{print $4}'
+echo -n "yacc -> "; readlink -f /usr/bin/yacc
+
+# Coreutils (>=6.9)
+echo -n "coreutils: "; chown --version | head -n1 | awk '{print $4}'
+# Diffutils (>=2.8.1)
+echo -n "diffutils: "; diff --version | head -n1 | awk '{print $4}'
+# Findutils (>=4.2.31)
+echo -n "findutils: "; find --version | head -n1 | awk '{print $4}'
+# Gawk (>=4.0.1)
+echo -n "gawk: "; gawk --version | head -n1 | awk '{print $3}' | tr -d ,
+echo -n "awk -> "; readlink -f /usr/bin/awk
+# GCC (>=4.8)
+echo -n "gcc: "; gcc --version | head -n1 | awk '{print $4}'
+echo -n "g++: "; g++ --version | head -n1 | awk '{print $4}'
+# Grep (>=2.5.1a)
+echo -n "grep: "; grep --version | head -n1 | awk '{print $4}'
+# Gzip (>=1.3.12)
+echo -n "gzip: "; gzip --version | head -n1 | awk '{print $2}'
+# Linux (>=3.2)
+echo -n "linux: "; uname -r
+# M4 (>=1.4.10)
+echo -n "m4: "; m4 --version | head -n1 | awk '{print $4}'
+# Make (>=4.0)
+echo -n "make: "; make --version | head -n1 | awk '{print $3}'
+# Patch (>=2.5.4)
+echo -n "patch: "; patch --version | head -n1 | awk '{print $3}'
+# Perl (>=5.8.8)
+echo -n "perl: "; perl -V:version | grep -oP "'.*?'" | tr -d \'
+# Python (>=3.4)
+echo -n "python: "; python3 --version | awk '{print $2}'
+# Sed (>=4.1.5)
+echo -n "sed: "; sed --version | head -n1 | awk '{print $4}'
+# Tar (>=1.22)
+echo -n "tar: "; tar --version | head -n1 | awk '{print $4}'
+# Texinfo (>=4.7)
+echo -n "texinfo: "; makeinfo --version | head -n1 | awk '{print $4}'
+# Xz (>=5.0.0)
+echo -n "xz: "; xz --version | head -n1 | awk '{print $4}'
+
+# Testing GCC compilation
+echo "int main(){}" > dummy.c && g++ -o dummy dummy.c
+if [ -x dummy ]; then echo "GCC compilation ... OK"
+else echo "GCC compilation ... FAIL"
+fi
+rm -f dummy.c dummy
