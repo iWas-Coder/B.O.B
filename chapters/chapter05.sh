@@ -15,3 +15,9 @@ source chapter05/binutils-pass1.sh
 
 # 5.3.1. Installation of Cross GCC
 source chapter05/gcc-pass1.sh
+
+# 5.4.1. Installation of Linux API Headers
+source chapter05/linux-api-headers.sh
+
+# 5.5.1. Installation of Glibc
+source chapter05/glibc.sh

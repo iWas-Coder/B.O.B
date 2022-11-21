@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Source: https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter05/binutils-pass1.html
+# Source: https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter05/gcc-pass1.html
 # Author: Wasym Atieh Alonso
 
 ###########################################

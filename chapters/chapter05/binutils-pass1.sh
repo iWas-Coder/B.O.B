@@ -18,12 +18,13 @@ cd binutils*/
 mkdir build && cd $_
 banner "Binutils (Pass 1) - Configure"; separator; confirm
 # Now prepare Binutils for compilation:
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --enable-gprofng=no \
-             --disable-werror
+../configure            \
+    --prefix=$LFS/tools \
+    --with-sysroot=$LFS \
+    --target=$LFS_TGT   \
+    --disable-nls       \
+    --enable-gprofng=no \
+    --disable-werror
 separator
 banner "Binutils (Pass 1) - Make"; separator; confirm
 # Continue with compiling the package:
