@@ -9,10 +9,10 @@
 banner "CHAPTER 06: Cross Compiling Temporary Tools"; separator
 
 # 6.2.1. Installation of M4
-source chapter06/6.2-m4.sh
+source $BOB/chapters/chapter06/6.2-m4.sh
 
 # 6.3.1. Installation of Ncurses
-source chapter06/6.3-ncurses.sh
+source $BOB/chapters/chapter06/6.3-ncurses.sh
 
 # 6.4.1. Installation of Bash
-source chapter06/6.4-bash.sh
+source $BOB/chapters/chapter06/6.4-bash.sh
