@@ -19,7 +19,7 @@ case $(uname -m) in
     x86_64) sudo mkdir -pv $LFS/lib64 ;;
 esac
 # Symbolic links
-sudo rm $LFS/{bin,lib,sbin}
+sudo rm -f $LFS/{bin,lib,sbin}
 sudo ln -sv $LFS/usr/bin $LFS/bin
 sudo ln -sv $LFS/usr/lib $LFS/lib
 sudo ln -sv $LFS/usr/sbin $LFS/sbin
