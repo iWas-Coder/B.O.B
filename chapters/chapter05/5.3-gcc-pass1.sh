@@ -10,7 +10,8 @@
 # Approximate build time: 12 SBU
 # Required disk space:    3.8 GB
 
-tar -xvf gcc*
+banner "GCC (Pass 1) - Extracting sources"; separator
+tar -xvf gcc*.tar.xz
 # GCC requires the GMP, MPFR and MPC packages.
 # As these packages may not be included in your host distribution, they will be built with GCC.
 # Unpack each package into the GCC source directory and rename the resulting directories so the GCC
@@ -21,6 +22,7 @@ tar -xvf gmp*
 mv gmp*/ gmp && mv gmp gcc*/
 tar -xvf mpc*
 mv mpc*/ mpc && mv mpc gcc*/
+separator
 cd gcc*/
 # On x86_64 hosts, set the default directory name for 64-bit libraries to “lib”:
 case $(uname -m) in
@@ -53,7 +55,7 @@ banner "GCC (Pass 1) - Configure"; separator; confirm
     --disable-libstdcxx       \
     --enable-languages=c,c++
 separator
-banner "GCC (Pass 1) - Make"; separator; confirm
+banner "GCC (Pass 1) - Make [12 SBU | MT]"; separator; confirm
 # Compile GCC by running:
 make -j$(nproc)
 separator

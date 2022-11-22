@@ -12,7 +12,9 @@
 
 # It is important that Binutils be the first package compiled because both Glibc and GCC perform various tests
 # on the available linker and assembler to determine which of their own features to enable.
-tar -xvf binutils*
+banner "Binutils (Pass 1) - Extracting sources"; separator
+tar -xvf binutils*.tar.xz
+separator
 cd binutils*/
 # The Binutils documentation recommends building Binutils in a dedicated build directory:
 mkdir build && cd $_
@@ -26,7 +28,7 @@ banner "Binutils (Pass 1) - Configure"; separator; confirm
     --enable-gprofng=no \
     --disable-werror
 separator
-banner "Binutils (Pass 1) - Make"; separator; confirm
+banner "Binutils (Pass 1) - Make [1 SBU | ST + Timer]"; separator; confirm
 # Continue with compiling the package:
 time make
 separator

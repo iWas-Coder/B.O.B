@@ -10,7 +10,9 @@
 # Approximate build time: 0.5 SBU
 # Required disk space:    64 MB
 
-tar -xvf bash*
+banner "Bash - Extracting sources"; separator
+tar -xvf bash*.tar.gz
+separator
 cd bash*/
 banner "Bash - Configure"; separator; confirm
 # Prepare Bash for compilation:
@@ -19,7 +21,7 @@ banner "Bash - Configure"; separator; confirm
             --host=$LFS_TGT                 \
             --without-bash-malloc
 separator
-banner "Bash - Make"; separator; confirm
+banner "Bash - Make [0.5 SBU | MT]"; separator; confirm
 # Compile the package:
 make -j$(nproc)
 separator

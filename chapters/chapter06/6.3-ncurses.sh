@@ -10,7 +10,9 @@
 # Approximate build time: 0.7 SBU
 # Required disk space:    50 MB
 
-tar -xvf ncurses*
+banner "Ncurses - Extracting sources"; separator
+tar -xvf ncurses*.tar.gz
+separator
 cd ncurses*/
 # First, ensure that gawk is found first during configuration:
 sed -i s/mawk// configure
@@ -37,7 +39,7 @@ banner "Ncurses - Configure"; separator; confirm
             --disable-stripping          \
             --enable-widec
 separator
-banner "Ncurses - Make"; separator; confirm
+banner "Ncurses - Make [0.7 SBU | MT]"; separator; confirm
 # Compile the package:
 make -j$(nproc)
 separator

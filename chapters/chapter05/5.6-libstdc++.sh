@@ -10,7 +10,9 @@
 # Approximate build time: 0.4 SBU
 # Required disk space:    1.1 GB
 
-tar -xvf gcc*
+banner "Libstdc++ - Extracting sources"; separator
+tar -xvf gcc*.tar.xz
+separator
 cd gcc*/
 # Create a separate build directory for libstdc++ and enter it:
 mkdir build && cd $_
@@ -25,7 +27,7 @@ banner "Libstdc++ - Configure"; separator; confirm
     --disable-libstdcxx-pch         \
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/12.2.0
 separator
-banner "Libstdc++ - Make"; separator; confirm
+banner "Libstdc++ - Make [0.4 SBU | MT]"; separator; confirm
 # Compile libstdc++ by running:
 make -j$(nproc)
 separator

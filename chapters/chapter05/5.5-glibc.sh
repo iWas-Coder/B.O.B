@@ -10,7 +10,9 @@
 # Approximate build time: 4.4 SBU
 # Required disk space:    821 MB
 
-tar -xvf glibc*
+banner "Glibc - Extracting sources"; separator
+tar -xvf glibc*.tar.xz
+separator
 # First, create a symbolic link for LSB compliance.
 # Additionally, for x86_64, create a compatibility symbolic link required for proper operation of the dynamic library loader:
 case $(uname -m) in
@@ -38,7 +40,7 @@ banner "Glibc - Configure"; separator; confirm
     --with-headers=$LFS/usr/include    \
     libc_cv_slibdir=/usr/lib
 separator
-banner "Glibc - Make"; separator; confirm
+banner "Glibc - Make [4.4 SBU | ST]"; separator; confirm
 # Compile the package:
 make
 separator

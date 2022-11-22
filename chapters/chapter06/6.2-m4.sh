@@ -10,7 +10,9 @@
 # Approximate build time: 0.2 SBU
 # Required disk space:    32 MB
 
-tar -xvf m4*
+banner "M4 - Extracting sources"; separator
+tar -xvf m4*.tar.xz
+separator
 cd m4*/
 banner "M4 - Configure"; separator; confirm
 # Prepare M4 for compilation:
@@ -18,7 +20,7 @@ banner "M4 - Configure"; separator; confirm
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
 separator
-banner "M4 - Make"; separator; confirm
+banner "M4 - Make [0.2 SBU | MT]"; separator; confirm
 # Compile the package:
 make -j$(nproc)
 separator
