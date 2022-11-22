@@ -6,7 +6,7 @@ Automated Procedures based on Gerard Beekmans's Linux from Scratch book publishe
 ### BOB-Libre
 Free (as in freedom).
 
-![free-software](https://raw.githubusercontent.com/iWas-Coder/BOB/master/assets/free-software.png)
+<img src="https://raw.githubusercontent.com/iWas-Coder/BOB/master/assets/free-software.png" width="400">
 
 ### BOB-Mainline
 Mainline kernel aimed for full hardware compatibility.
