@@ -6,8 +6,6 @@
 ############################
 # Script Environment Setup #
 ############################
-# Hide cursor
-tput civis; clear
 # Colors for pretty-printing
 C_RESET='\033[0m'
 C_YELLOW='\033[1;33m'
@@ -36,6 +34,8 @@ confirm () {
 }
 # Sudo privileges
 sudo whoami &>/dev/null
+# Hide cursor
+tput civis; clear
 # Base directories
 BOB=$(pwd)
 LFS="/mnt/lfs"
