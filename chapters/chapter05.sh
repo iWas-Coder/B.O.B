@@ -26,3 +26,7 @@ source $BOB/chapters/chapter05/5.5-glibc.sh
 source $BOB/chapters/chapter05/5.6-libstdc++.sh
 
 separator
+
+banner "Archive + Compress + Save the state at the end of Chapter 05"; separator; confirm
+tar -cvf - $LFS | pigz -v | sudo tee /mnt/lfs-ch05.tar.gz > /dev/null
+separator
