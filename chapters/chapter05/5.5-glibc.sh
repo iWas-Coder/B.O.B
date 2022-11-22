@@ -27,7 +27,7 @@ esac
 cd glibc*/
 patch -Np1 -i ../glibc-2.36-fhs-1.patch
 # The Glibc documentation recommends building Glibc in a dedicated build directory:
-mkdir build cd $_
+mkdir build && cd $_
 # Ensure that the ldconfig and sln utilities are installed into /usr/sbin:
 echo "rootsbindir=/usr/sbin" > configparms
 banner "Glibc - Configure"; separator; confirm
@@ -53,10 +53,12 @@ sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
 # At this point, it is imperative to stop and ensure that the basic functions (compiling and linking)
 # of the new toolchain are working as expected.
 # To perform a sanity check, run the following commands:
+banner "Toolchain Sanity Check"; separator
 echo 'int main(){}' | gcc -xc -
 readelf -l a.out | grep ld-linux
 # Once all is well, clean up the test file:
 rm a.out
+separator
 # Now that our cross-toolchain is complete, finalize the installation of the limits.h header.
 # For doing so, run a utility provided by the GCC developers:
 $LFS/tools/libexec/gcc/$LFS_TGT/12.2.0/install-tools/mkheaders
