@@ -26,5 +26,35 @@ source chapters/chapter04.sh
 confirm
 source chapters/chapter05.sh
 
+###############################################
+# CHAPTER 06: Cross Compiling Temporary Tools #
+###############################################
+confirm
+source chapters/chapter06.sh
+
+#######################################################################
+# CHAPTER 07: Entering Chroot and Building Additional Temporary Tools #
+#######################################################################
+confirm
+source chapters/chapter07.sh
+
+################################################
+# CHAPTER 08: Installing Basic System Software #
+################################################
+confirm
+source chapters/chapter08.sh
+
+####################################
+# CHAPTER 09: System Configuration #
+####################################
+confirm
+source chapters/chapter09.sh
+
+##############################################
+# CHAPTER 10: Making the LFS System Bootable #
+##############################################
+confirm
+source chapters/chapter10.sh
+
 # Recover cursor
 tput cnorm; exit 0

@@ -30,6 +30,7 @@ patch -Np1 -i ../glibc-2.36-fhs-1.patch
 mkdir build && cd $_
 # Ensure that the ldconfig and sln utilities are installed into /usr/sbin:
 echo "rootsbindir=/usr/sbin" > configparms
+separator
 banner "Glibc - Configure"; separator; confirm
 # Next, prepare Glibc for compilation:
 ../configure                           \
