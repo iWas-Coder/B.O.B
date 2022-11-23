@@ -15,17 +15,17 @@
 banner "Binutils (Pass 1) - Extracting sources"; separator
 tar -xvf binutils*.tar.xz
 separator
-cd binutils*/
+cd binutils*/ || exit
 # The Binutils documentation recommends building Binutils in a dedicated build directory:
-mkdir build && cd $_
+mkdir build && ( cd "$_" || exit )
 banner "Binutils (Pass 1) - Configure"; separator; confirm
 # Now prepare Binutils for compilation:
-../configure            \
-    --prefix=$LFS/tools \
-    --with-sysroot=$LFS \
-    --target=$LFS_TGT   \
-    --disable-nls       \
-    --enable-gprofng=no \
+../configure              \
+    --prefix="$LFS"/tools \
+    --with-sysroot="$LFS" \
+    --target="$LFS_TGT"   \
+    --disable-nls         \
+    --enable-gprofng=no   \
     --disable-werror
 separator
 banner "Binutils (Pass 1) - Make [1 SBU | ST + Timer]"; separator; confirm

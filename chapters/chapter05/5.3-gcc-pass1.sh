@@ -23,7 +23,7 @@ mv gmp*/ gmp && mv gmp gcc*/
 tar -xvf mpc*
 mv mpc*/ mpc && mv mpc gcc*/
 separator
-cd gcc*/
+cd gcc*/ || exit
 # On x86_64 hosts, set the default directory name for 64-bit libraries to “lib”:
 case $(uname -m) in
     x86_64)
@@ -32,32 +32,32 @@ case $(uname -m) in
     ;;
 esac
 # The GCC documentation recommends building GCC in a dedicated build directory:
-mkdir build && cd $_
+mkdir build && ( cd "$_" || exit )
 banner "GCC (Pass 1) - Configure"; separator; confirm
 # Prepare GCC for compilation:
-../configure                  \
-    --target=$LFS_TGT         \
-    --prefix=$LFS/tools       \
-    --with-glibc-version=2.36 \
-    --with-sysroot=$LFS       \
-    --with-newlib             \
-    --without-headers         \
-    --disable-nls             \
-    --disable-shared          \
-    --disable-multilib        \
-    --disable-decimal-float   \
-    --disable-threads         \
-    --disable-libatomic       \
-    --disable-libgomp         \
-    --disable-libquadmath     \
-    --disable-libssp          \
-    --disable-libvtv          \
-    --disable-libstdcxx       \
+../configure                    \
+    --target="$LFS_TGT"         \
+    --prefix="$LFS"/tools       \
+    --with-glibc-version=2.36   \
+    --with-sysroot="$LFS"       \
+    --with-newlib               \
+    --without-headers           \
+    --disable-nls               \
+    --disable-shared            \
+    --disable-multilib          \
+    --disable-decimal-float     \
+    --disable-threads           \
+    --disable-libatomic         \
+    --disable-libgomp           \
+    --disable-libquadmath       \
+    --disable-libssp            \
+    --disable-libvtv            \
+    --disable-libstdcxx         \
     --enable-languages=c,c++
 separator
 banner "GCC (Pass 1) - Make [12 SBU | MT]"; separator; confirm
 # Compile GCC by running:
-make -j$(nproc)
+make -j"$(nproc)"
 separator
 banner "GCC (Pass 1) - Make Install"; separator; confirm
 # Install the package:
@@ -73,7 +73,7 @@ separator
 # GCC build system does in normal circumstances:
 cd ..
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-    `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+    "$(dirname "$("$LFS_TGT"-gcc -print-libgcc-file-name)")"/install-tools/include/limits.h
 cd .. && rm -rf gcc*/
 
 # More details: https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter08/gcc.html#contents-gcc

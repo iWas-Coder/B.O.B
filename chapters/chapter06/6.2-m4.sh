@@ -13,20 +13,20 @@
 banner "M4 - Extracting sources"; separator
 tar -xvf m4*.tar.xz
 separator
-cd m4*/
+cd m4*/ || exit
 banner "M4 - Configure"; separator; confirm
 # Prepare M4 for compilation:
-./configure --prefix=/usr   \
-            --host=$LFS_TGT \
-            --build=$(build-aux/config.guess)
+./configure --prefix=/usr     \
+            --host="$LFS_TGT" \
+            --build="$(build-aux/config.guess)"
 separator
 banner "M4 - Make [0.2 SBU | MT]"; separator; confirm
 # Compile the package:
-make -j$(nproc)
+make -j"$(nproc)"
 separator
 banner "M4 - Make Install"; separator; confirm
 # Install the package:
-make DESTDIR=$LFS install
+make DESTDIR="$LFS" install
 separator
 cd .. && rm -rf m4*/
 

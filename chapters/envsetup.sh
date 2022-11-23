@@ -18,7 +18,7 @@ ctrl_c () {
 trap ctrl_c INT
 separator () {
     echo -ne "$C_RED"
-    printf '%.s─' $(seq 1 $(tput cols))
+    printf '%.s─' $(seq 1 "$(tput cols)")
     echo -ne "$C_RESET"
     sleep 2
 }

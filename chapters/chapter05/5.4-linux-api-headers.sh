@@ -15,7 +15,7 @@ tar -xvf linux*.tar.xz
 separator
 # The Linux kernel needs to expose an API for the system's C library (Glibc in LFS) to use.
 # This is done by way of sanitizing various C header files that are shipped in the Linux kernel source tarball.
-cd linux*/
+cd linux*/ || exit
 # Make sure there are no stale files embedded in the package:
 make mrproper
 banner "Linux API Headers - Make Headers [0.1 SBU | ST]"; separator; confirm
@@ -25,5 +25,5 @@ banner "Linux API Headers - Make Headers [0.1 SBU | ST]"; separator; confirm
 make headers
 separator
 find usr/include -type f ! -name '*.h' -delete
-cp -rv usr/include $LFS/usr
+cp -rv usr/include "$LFS"/usr
 cd .. && rm -rf linux*/

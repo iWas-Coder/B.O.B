@@ -13,24 +13,24 @@ banner "CHAPTER 04: Final Preparations"; separator
 # This is needed so that those temporary programs be overwritten when rebuilding them in Chapter 8.
 # Create the required directory layout by running the following as root:
 # Regular directories
-sudo mkdir -pv $LFS/{etc,var,usr}
-sudo mkdir -pv $LFS/usr/{bin,lib,sbin}
+sudo mkdir -pv "$LFS"/{etc,var,usr}
+sudo mkdir -pv "$LFS"/usr/{bin,lib,sbin}
 case $(uname -m) in
-    x86_64) sudo mkdir -pv $LFS/lib64 ;;
+    x86_64) sudo mkdir -pv "$LFS"/lib64 ;;
 esac
 # Symbolic links
-sudo rm -f $LFS/{bin,lib,sbin}
-sudo ln -sv $LFS/usr/bin $LFS/bin
-sudo ln -sv $LFS/usr/lib $LFS/lib
-sudo ln -sv $LFS/usr/sbin $LFS/sbin
+sudo rm -f "$LFS"/{bin,lib,sbin}
+sudo ln -sv "$LFS"/usr/bin "$LFS"/bin
+sudo ln -sv "$LFS"/usr/lib "$LFS"/lib
+sudo ln -sv "$LFS"/usr/sbin "$LFS"/sbin
 
 # Programs in Chapter 6 will be compiled with a cross-compiler.
 # In order to separate this cross-compiler from the other programs, it will be installed in a special directory.
 # Create this directory with:
-sudo mkdir -pv $LFS/tools
+sudo mkdir -pv "$LFS"/tools
 
 # Grant lfs full access to all directories under $LFS by making lfs the directory owner:
-sudo chown -R $(logname) $LFS
+sudo chown -R "$(logname)" "$LFS"
 
 # Set all needed environment variables:
 set +h
