@@ -20,7 +20,7 @@ echo -n "coreutils: "; chown --version | head -n1 | awk '{print $4}'
 # Diffutils (>=2.8.1)
 echo -n "diffutils: "; diff --version | head -n1 | awk '{print $4}'
 # Findutils (>=4.2.31)
-echo -n "findutils: "; find --version | head -n1 | awk '{print $4}'
+echo -n "findutils: "; find . --version | head -n1 | awk '{print $4}'
 # Gawk (>=4.0.1)
 echo -n "gawk: "; gawk --version | head -n1 | awk '{print $3}' | tr -d ,
 echo -n "awk -> "; readlink -f /usr/bin/awk
