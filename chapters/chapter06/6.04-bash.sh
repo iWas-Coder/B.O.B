@@ -16,7 +16,8 @@ separator
 cd bash*/ || exit
 banner "Bash - Configure"; separator; confirm
 # Prepare Bash for compilation:
-./configure --prefix=/usr                     \
+./configure --enable-silent-rules             \
+            --prefix=/usr                     \
             --build="$(support/config.guess)" \
             --host="$LFS_TGT"                 \
             --without-bash-malloc

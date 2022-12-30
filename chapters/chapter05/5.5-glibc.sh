@@ -34,6 +34,7 @@ separator
 banner "Glibc - Configure"; separator; confirm
 # Next, prepare Glibc for compilation:
 ../configure                             \
+    --enable-silent-rules                \
     --prefix=/usr                        \
     --host="$LFS_TGT"                    \
     --build="$(../scripts/config.guess)" \

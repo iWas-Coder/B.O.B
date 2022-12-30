@@ -36,6 +36,7 @@ mkdir -p build && cd "$_"
 banner "GCC (Pass 1) - Configure"; separator; confirm
 # Prepare GCC for compilation:
 ../configure                    \
+    --enable-silent-rules       \
     --target="$LFS_TGT"         \
     --prefix="$LFS"/tools       \
     --with-glibc-version=2.36   \

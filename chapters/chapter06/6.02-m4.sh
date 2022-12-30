@@ -16,8 +16,9 @@ separator
 cd m4*/ || exit
 banner "M4 - Configure"; separator; confirm
 # Prepare M4 for compilation:
-./configure --prefix=/usr     \
-            --host="$LFS_TGT" \
+./configure --enable-silent-rules \
+            --prefix=/usr         \
+            --host="$LFS_TGT"     \
             --build="$(build-aux/config.guess)"
 separator
 banner "M4 - Make [0.2 SBU | MT]"; separator; confirm

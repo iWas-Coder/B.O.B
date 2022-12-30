@@ -21,6 +21,7 @@ mkdir -p build && cd "$_"
 banner "Binutils (Pass 1) - Configure"; separator; confirm
 # Now prepare Binutils for compilation:
 ../configure              \
+    --enable-silent-rules \
     --prefix="$LFS"/tools \
     --with-sysroot="$LFS" \
     --target="$LFS_TGT"   \

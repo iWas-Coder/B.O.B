@@ -19,6 +19,7 @@ mkdir -p build && cd "$_"
 banner "Libstdc++ - Configure"; separator; confirm
 # Prepare libstdc++ for compilation:
 ../libstdc++-v3/configure             \
+    --enable-silent-rules             \
     --host="$LFS_TGT"                 \
     --build="$(../config.guess)"      \
     --prefix=/usr                     \

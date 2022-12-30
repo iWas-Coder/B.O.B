@@ -26,7 +26,8 @@ popd &>/dev/null || exit
 separator
 banner "Ncurses - Configure"; separator; confirm
 # Prepare Ncurses for compilation:
-./configure --prefix=/usr                  \
+./configure --enable-silent-rules          \
+            --prefix=/usr                  \
             --host="$LFS_TGT"              \
             --build="$(./config.guess)"    \
             --mandir=/usr/share/man        \
