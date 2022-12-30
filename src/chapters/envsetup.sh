@@ -37,7 +37,7 @@ sudo whoami &>/dev/null
 # Hide cursor
 tput civis; clear
 # Base directories
-BOB=$(pwd)
+BOB=$(pwd)/..
 LFS="/mnt/lfs"
 sudo mkdir -p "$LFS"
 banner "Script Environment Setup"; separator
