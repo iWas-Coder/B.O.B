@@ -9,28 +9,28 @@
 banner "CHAPTER 06: Cross Compiling Temporary Tools"; separator
 
 # 6.2.1. Installation of M4
-source "$BOB"/chapters/chapter06/6.2-m4.sh
+source "$BOB"/chapters/chapter06/6.02-m4.sh
 
 # 6.3.1. Installation of Ncurses
-source "$BOB"/chapters/chapter06/6.3-ncurses.sh
+source "$BOB"/chapters/chapter06/6.03-ncurses.sh
 
 # 6.4.1. Installation of Bash
-source "$BOB"/chapters/chapter06/6.4-bash.sh
+source "$BOB"/chapters/chapter06/6.04-bash.sh
 
 # 6.5.1. Installation of Coreutils
-source "$BOB"/chapters/chapter06/6.5-coreutils.sh
+source "$BOB"/chapters/chapter06/6.05-coreutils.sh
 
 # 6.6.1. Installation of Diffutils
-source "$BOB"/chapters/chapter06/6.6-diffutils.sh
+source "$BOB"/chapters/chapter06/6.06-diffutils.sh
 
 # 6.7.1. Installation of File
-source "$BOB"/chapters/chapter06/6.7-file.sh
+source "$BOB"/chapters/chapter06/6.07-file.sh
 
 # 6.8.1. Installation of Findutils
-source "$BOB"/chapters/chapter06/6.8-findutils.sh
+source "$BOB"/chapters/chapter06/6.08-findutils.sh
 
 # 6.9.1. Installation of Gawk
-source "$BOB"/chapters/chapter06/6.9-gawk.sh
+source "$BOB"/chapters/chapter06/6.09-gawk.sh
 
 # 6.10.1. Installation of Grep
 source "$BOB"/chapters/chapter06/6.10-grep.sh
