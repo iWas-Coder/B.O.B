@@ -26,7 +26,7 @@ separator
 # Checking checksums (md5, sha1, sha256, sha384, sha512) for all sources downloaded previously at $LFS/sources:
 pushd "$LFS"/sources &>/dev/null || exit
 banner "Checking MD5 of downloaded sources"; separator
-md5sum -c "$BOB"/.ources/sources.md5
+md5sum -c "$BOB"/sources/sources.md5
 separator
 banner "Checking SHA1 of downloaded sources"; separator
 sha1sum -c "$BOB"/sources/sources.sha1
