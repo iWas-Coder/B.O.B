@@ -32,7 +32,7 @@ case $(uname -m) in
     ;;
 esac
 # The GCC documentation recommends building GCC in a dedicated build directory:
-mkdir build && ( cd "$_" || exit )
+mkdir -f build && ( cd "$_" || exit )
 banner "GCC (Pass 1) - Configure"; separator; confirm
 # Prepare GCC for compilation:
 ../configure                    \

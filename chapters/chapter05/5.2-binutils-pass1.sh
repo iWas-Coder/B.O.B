@@ -17,7 +17,7 @@ tar -xvf binutils*.tar.xz
 separator
 cd binutils*/ || exit
 # The Binutils documentation recommends building Binutils in a dedicated build directory:
-mkdir build && ( cd "$_" || exit )
+mkdir -f build && ( cd "$_" || exit )
 banner "Binutils (Pass 1) - Configure"; separator; confirm
 # Now prepare Binutils for compilation:
 ../configure              \
