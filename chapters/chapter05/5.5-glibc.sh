@@ -27,7 +27,7 @@ esac
 cd glibc*/ || exit
 patch -Np1 -i ../glibc-2.36-fhs-1.patch
 # The Glibc documentation recommends building Glibc in a dedicated build directory:
-mkdir -p build && ( cd "$_" || exit )
+mkdir -p build && cd "$_"
 # Ensure that the ldconfig and sln utilities are installed into /usr/sbin:
 echo "rootsbindir=/usr/sbin" > configparms
 separator

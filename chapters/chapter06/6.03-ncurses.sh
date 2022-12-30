@@ -18,7 +18,7 @@ cd ncurses*/ || exit
 sed -i s/mawk// configure
 banner "Build the 'tic' program"; separator; confirm
 # Then, run the following commands to build the “tic” program on the build host:
-mkdir -p build && ( pushd "$_" &>/dev/null || exit )
+mkdir -p build && pushd "$_" &>/dev/null
 ../configure
 make -C include
 make -C progs tic
