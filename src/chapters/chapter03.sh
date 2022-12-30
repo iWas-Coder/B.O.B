@@ -18,7 +18,7 @@ sudo mkdir -p "$LFS"/sources
 sudo chmod a+wt "$LFS"/sources
 
 # To download all of the packages and patches use:
-for pkg in $(cat "$BOB"/sources/sources.list); do
+for pkg in $(cat "$BOB"/../sources/sources.list); do
     wget -nc "$pkg" -P "$LFS"/sources
 done
 separator
