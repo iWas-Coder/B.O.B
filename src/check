@@ -25,8 +25,8 @@ echo -n "findutils: "; find . --version | head -n1 | awk '{print $4}'
 echo -n "gawk: "; gawk --version | head -n1 | awk '{print $3}' | tr -d ,
 echo -n "awk -> "; readlink -f /usr/bin/awk
 # GCC (>=4.8)
-echo -n "gcc: "; gcc --version | head -n1 | awk '{print $4}'
-echo -n "g++: "; g++ --version | head -n1 | awk '{print $4}'
+echo -n "gcc: "; gcc --version | head -n1 | awk '{print $3}'
+echo -n "g++: "; g++ --version | head -n1 | awk '{print $3}'
 # Grep (>=2.5.1a)
 echo -n "grep: "; grep --version | head -n1 | awk '{print $4}'
 # Gzip (>=1.3.12)
