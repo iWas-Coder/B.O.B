@@ -54,7 +54,7 @@ source "$BOB"/chapters/chapter06/6.15-tar.sh
 source "$BOB"/chapters/chapter06/6.16-xz.sh
 
 # 6.17.1. Installation of Binutils
-source "$BOB"/chapters/chapter06/6.17-binutils.sh
+source "$BOB"/chapters/chapter06/6.17-binutils-pass2.sh
 
 # 6.18.1. Installation of GCC
-source "$BOB"/chapters/chapter06/6.18-gcc.sh
+source "$BOB"/chapters/chapter06/6.18-gcc-pass2.sh

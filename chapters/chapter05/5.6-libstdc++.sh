@@ -15,7 +15,7 @@ tar -xvf gcc*.tar.xz
 separator
 cd gcc*/ || exit
 # Create a separate build directory for libstdc++ and enter it:
-mkdir -p build && cd "$_"
+mkdir -p build && cd "$_" || exit
 banner "Libstdc++ - Configure"; separator; confirm
 # Prepare libstdc++ for compilation:
 ../libstdc++-v3/configure             \
